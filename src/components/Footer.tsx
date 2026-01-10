@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="hidden md:block bg-black text-white py-12 px-6">
       <div className="max-w-[1200px] mx-auto grid grid-cols-3 gap-12">
         <div>
-          <h2 className="text-2xl font-bold text-pista mb-4">FreshCut</h2>
+          <h2 className="text-2xl font-bold text-fresh-500 mb-4">FreshCut</h2>
           <p className="text-gray-400 text-sm leading-relaxed">
             Revolutionizing the way you cook. Fresh, hygienic, and pre-cut vegetables delivered to your doorstep.
           </p>

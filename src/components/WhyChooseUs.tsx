@@ -33,11 +33,11 @@ const reasons = [
 export default function WhyChooseUs() {
   return (
     <section className="px-6 py-8 bg-white">
-      <h2 className="text-xl font-bold text-olive mb-6">Why Choose Us</h2>
+      <h2 className="text-xl font-bold text-olive-500 mb-6">Why Choose Us</h2>
       <div className="space-y-4">
         {reasons.map((reason) => (
-          <div key={reason.title} className="flex items-start p-5 bg-gray-50 rounded-2xl border border-gray-divider">
-            <div className="p-3 bg-white rounded-xl text-olive shadow-sm border border-gray-divider mr-4">
+          <div key={reason.title} className="flex items-start p-5 bg-light-100 rounded-lg">
+            <div className="p-3 bg-fresh-500 rounded-full text-white shadow-sm mr-4">
               {reason.icon}
             </div>
             <div>

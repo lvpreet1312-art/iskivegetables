@@ -5,6 +5,11 @@
   --color-pista: #93C572;
   --color-white: #FFFFFF;
   --color-gray-divider: #E5E7EB;
+  
+  /* New Color Scheme */
+  --color-fresh-500: #16A34A;
+  --color-olive-500: #556B2F;
+  --color-light-100: #F0FFF4;
 }
 
 :root {

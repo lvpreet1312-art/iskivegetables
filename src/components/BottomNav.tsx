@@ -39,10 +39,10 @@ export default function BottomNav() {
         <button
           key={item.id}
           className={`flex flex-col items-center justify-center flex-1 transition-colors duration-200 ${
-            activeId === item.id ? 'text-olive' : 'text-gray-400'
+            activeId === item.id ? 'text-fresh-500' : 'text-gray-400'
           } ${item.primary ? 'mb-1' : ''}`}
         >
-          <div className={`${item.primary ? 'p-3 bg-pista text-white rounded-full -translate-y-4 shadow-lg border-4 border-white' : ''}`}>
+          <div className={`${item.primary ? 'p-3 bg-fresh-500 text-white rounded-full -translate-y-4 shadow-lg border-4 border-white' : ''}`}>
             {item.icon}
           </div>
           <span className={`text-[10px] font-medium mt-1 ${item.primary ? '-mt-3' : ''}`}>
