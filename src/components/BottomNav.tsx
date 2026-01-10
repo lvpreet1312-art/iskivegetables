@@ -38,7 +38,7 @@ export default function BottomNav({ onMenuClick }: BottomNavProps) {
   const activeId = 'home';
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-width-[430px] bg-white border-t border-gray-divider flex items-end justify-between px-2 pb-2 pt-1 z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]" style={{ maxWidth: '430px' }}>
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full bg-white border border-gray-divider rounded-full flex items-center justify-between px-4 md:px-8 lg:px-14 py-1 md:py-1.5 lg:py-2 z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] max-w-[400px] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mb-4 md:mb-6 lg:mb-8">
       {navItems.map((item) => (
         <button
           key={item.id}
