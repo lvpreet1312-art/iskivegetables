@@ -32,20 +32,24 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="px-6 py-8 bg-white">
-      <h2 className="text-xl font-bold text-olive-500 mb-6">Why Choose Us</h2>
-      <div className="space-y-4">
-        {reasons.map((reason) => (
-          <div key={reason.title} className="flex items-start p-5 bg-light-100 rounded-lg">
-            <div className="p-3 bg-fresh-500 rounded-full text-white shadow-sm mr-4">
-              {reason.icon}
+    <section className="px-6 md:px-8 lg:px-12 xl:px-16 py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+      <div className="max-w-[1920px] mx-auto">
+        <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-olive-500 mb-6 md:mb-8 lg:mb-10 xl:mb-12">Why Choose Us</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 xl:gap-8 2xl:gap-10">
+          {reasons.map((reason) => (
+            <div key={reason.title} className="flex items-start p-5 md:p-6 lg:p-7 xl:p-8 2xl:p-10 bg-light-100 rounded-lg md:rounded-xl xl:rounded-2xl hover:shadow-lg hover:scale-[1.02] transition-all">
+              <div className="p-3 md:p-4 lg:p-5 xl:p-6 bg-fresh-500 rounded-full text-white shadow-md mr-4 xl:mr-6 shrink-0">
+                <div className="w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8">
+                  {reason.icon}
+                </div>
+              </div>
+              <div>
+                <h3 className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold text-black mb-1 md:mb-2 xl:mb-3">{reason.title}</h3>
+                <p className="text-xs md:text-sm lg:text-base xl:text-lg text-black/50 leading-relaxed">{reason.desc}</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-sm font-bold text-black mb-1">{reason.title}</h3>
-              <p className="text-xs text-black/50 leading-relaxed">{reason.desc}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

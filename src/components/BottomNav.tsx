@@ -2,6 +2,10 @@
 
 import React from "react";
 
+interface BottomNavProps {
+  onMenuClick?: () => void;
+}
+
 const navItems = [
   { id: 'menu', label: 'MENU', icon: (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -30,14 +34,15 @@ const navItems = [
   )},
 ];
 
-export default function BottomNav() {
+export default function BottomNav({ onMenuClick }: BottomNavProps) {
   const activeId = 'home';
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-width-[430px] bg-white border-t border-gray-divider flex items-end justify-between px-2 pb-2 pt-1 z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]" style={{ maxWidth: '430px' }}>
+    <nav className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-width-[430px] bg-white border-t border-gray-divider flex items-end justify-between px-2 pb-2 pt-1 z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]" style={{ maxWidth: '430px' }}>
       {navItems.map((item) => (
         <button
           key={item.id}
+          onClick={item.id === 'menu' ? onMenuClick : undefined}
           className={`flex flex-col items-center justify-center flex-1 transition-colors duration-200 ${
             activeId === item.id ? 'text-fresh-500' : 'text-gray-400'
           } ${item.primary ? 'mb-1' : ''}`}
