@@ -3,26 +3,16 @@
 import React from "react";
 
 interface HeaderProps {
-  onMenuClick?: () => void;
   searchQuery?: string;
   onSearchChange?: (query: string) => void;
 }
 
-export default function Header({ onMenuClick, searchQuery = "", onSearchChange }: HeaderProps) {
+export default function Header({ searchQuery = "", onSearchChange }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-divider px-4 py-3 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-[1920px] mx-auto">
           <div className="flex items-center justify-between gap-6 lg:gap-8 xl:gap-12">
             <div className="flex items-center gap-3">
-              <button 
-                onClick={onMenuClick}
-                className="lg:hidden w-10 h-10 flex items-center justify-center hover:bg-light-100 rounded-lg transition-colors"
-                aria-label="Open menu"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-olive-500">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-              </button>
               <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-olive-500 whitespace-nowrap">FreshCut</h1>
             </div>
           

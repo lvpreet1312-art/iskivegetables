@@ -61,7 +61,7 @@ export const products: ProductData = {
         { id: 29, name: "Broccoli", desc: "chopped", price: "₹69", category: "Ready", image: "https://placehold.co/320x240?text=Potato" },
         { id: 30, name: "Lady FInger / Bhindi", desc: "Chopped", price: "₹69", category: "Ready", image: "https://placehold.co/320x240?text=Potato" },
         { id: 31, name: "Green Beans", desc: "Chopped", price: "₹69", category: "Ready", image: "https://placehold.co/320x240?text=Potato" },
-        { id: 32, name: "Drumstick / Sahjan / Moringa", desc: "Ready for cooking", price: "₹69", category: "Ready", image: "https://placehold.co/320x240?text=Potato" },
+        { id: 32, name: "Drumstick / Sahjan / Moringa", desc: "Chopped", price: "₹69", category: "Ready", image: "https://placehold.co/320x240?text=Potato" },
         { id: 33, name: "Cabbage / Pattagobhi", desc: "Ready for cooking", price: "₹69", category: "Ready", image: "https://placehold.co/320x240?text=Potato" },
         { id: 34, name: "Spinach / Palak", desc: "Chopped", price: "₹69", category: "Ready", image: "https://placehold.co/320x240?text=Potato" },
     ],

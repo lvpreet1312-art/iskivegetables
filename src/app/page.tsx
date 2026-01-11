@@ -50,7 +50,6 @@ export default function Home() {
   return (
     <main className="pb-24 md:pb-0">
       <Header 
-        onMenuClick={() => setIsMenuOpen(true)}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
       />
