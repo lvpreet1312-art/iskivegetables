@@ -13,6 +13,14 @@ import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import { products, Product } from "@/data/products";
 
+const categorySections = [
+  { key: "popularCombos", title: "Popular Combos" },
+  { key: "dailyEssentials", title: "Daily Essentials" },
+  { key: "bestSellers", title: "Best Sellers" },
+  { key: "readyToCook", title: "Ready-to-Cook" },
+  { key: "timeSavers", title: "Time Savers" }
+] as const;
+
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -28,16 +36,16 @@ export default function Home() {
     );
   }, [searchQuery]);
 
-  const filteredProducts = useMemo(() => ({
-    bestSellers: filterProducts(products.bestSellers),
-    timeSavers: filterProducts(products.timeSavers),
-    dailyEssentials: filterProducts(products.dailyEssentials),
-    readyToCook: filterProducts(products.readyToCook),
-    mealPacks: filterProducts(products.mealPacks),
-    combos: filterProducts(products.combos)
-  }), [filterProducts]);
+  const filteredCategoryProducts = useMemo(
+    () =>
+      categorySections.map((section) => ({
+        ...section,
+        products: filterProducts(products[section.key] ?? [])
+      })),
+    [filterProducts]
+  );
 
-  const hasResults = Object.values(filteredProducts).some(list => list.length > 0);
+  const hasResults = filteredCategoryProducts.some((section) => section.products.length > 0);
 
   return (
     <main className="pb-24 md:pb-0">
@@ -58,23 +66,15 @@ export default function Home() {
           </div>
         )}
         
-        {filteredProducts.bestSellers.length > 0 && (
-          <CategorySection title="Best Sellers" products={filteredProducts.bestSellers} />
-        )}
-        {filteredProducts.timeSavers.length > 0 && (
-          <CategorySection title="Time Savers" products={filteredProducts.timeSavers} />
-        )}
-        {filteredProducts.dailyEssentials.length > 0 && (
-          <CategorySection title="Daily Essentials" products={filteredProducts.dailyEssentials} />
-        )}
-        {filteredProducts.readyToCook.length > 0 && (
-          <CategorySection title="Ready-to-Cook" products={filteredProducts.readyToCook} />
-        )}
-        {filteredProducts.mealPacks.length > 0 && (
-          <CategorySection title="Meal Packs" products={filteredProducts.mealPacks} />
-        )}
-        {filteredProducts.combos.length > 0 && (
-          <CategorySection title="Combos" products={filteredProducts.combos} />
+        {filteredCategoryProducts.map((section) =>
+          section.products.length > 0 ? (
+            <CategorySection
+              key={section.key}
+              id={section.key}
+              title={section.title}
+              products={section.products}
+            />
+          ) : null
         )}
       </section>
 

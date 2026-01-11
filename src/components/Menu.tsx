@@ -17,19 +17,17 @@ interface Category {
 
 const categories: Category[] = [
   { id: "popularCombos", name: "Popular Combos", key: "popularCombos" },
-  { id: "bestSellers", name: "Best Sellers", key: "bestSellers" },
-  { id: "timeSavers", name: "Time Savers", key: "timeSavers" },
   { id: "dailyEssentials", name: "Daily Essentials", key: "dailyEssentials" },
+  { id: "bestSellers", name: "Best Sellers", key: "bestSellers" },
   { id: "readyToCook", name: "Ready to Cook", key: "readyToCook" },
-  { id: "mealPacks", name: "Meal Packs", key: "mealPacks" },
-  { id: "combos", name: "Combos", key: "combos" },
+  { id: "timeSavers", name: "Time Savers", key: "timeSavers" }
 ];
 
 export default function Menu({ isOpen, onClose }: MenuProps) {
-  const [activeCategory, setActiveCategory] = useState<string>("bestSellers");
+  const [activeCategory, setActiveCategory] = useState<string>("popularCombos");
 
   const activeCategoryData = categories.find(cat => cat.id === activeCategory);
-  const categoryProducts = activeCategoryData ? products[activeCategoryData.key] : [];
+  const categoryProducts = activeCategoryData ? products[activeCategoryData.key] ?? [] : [];
 
   if (!isOpen) return null;
 
