@@ -4,9 +4,11 @@ import React from "react";
 
 interface HeaderProps {
   onMenuClick?: () => void;
+  searchQuery?: string;
+  onSearchChange?: (query: string) => void;
 }
 
-export default function Header({ onMenuClick }: HeaderProps) {
+export default function Header({ onMenuClick, searchQuery = "", onSearchChange }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-divider px-4 py-3 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-[1920px] mx-auto">
@@ -28,7 +30,10 @@ export default function Header({ onMenuClick }: HeaderProps) {
             <input
               type="text"
               placeholder="Search vegetables"
+              value={searchQuery}
+              onChange={(e) => onSearchChange?.(e.target.value)}
               className="w-full bg-light-100 border-none rounded-full py-2 px-10 md:py-3 md:px-12 lg:py-4 lg:px-14 text-sm md:text-base lg:text-lg focus:ring-2 focus:ring-fresh-500 outline-none placeholder:text-gray-400"
+              aria-label="Search vegetables"
             />
             <div className="absolute left-3 md:left-4 lg:left-5 top-1/2 -translate-y-1/2">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-gray-400">

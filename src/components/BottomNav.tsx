@@ -37,12 +37,22 @@ const navItems = [
 export default function BottomNav({ onMenuClick }: BottomNavProps) {
   const activeId = 'home';
 
+  const handleNavClick = (itemId: string) => {
+    if (itemId === 'menu') {
+      onMenuClick?.();
+    } else if (itemId === 'home') {
+      if (typeof window !== 'undefined') {
+        window.location.reload();
+      }
+    }
+  };
+
   return (
     <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full bg-white border border-gray-divider rounded-full flex items-center justify-between px-4 md:px-8 lg:px-14 py-1 md:py-1.5 lg:py-2 z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] max-w-[400px] md:max-w-xl lg:max-w-2xl xl:max-w-3xl mb-4 md:mb-6 lg:mb-8">
       {navItems.map((item) => (
         <button
           key={item.id}
-          onClick={item.id === 'menu' ? onMenuClick : undefined}
+          onClick={() => handleNavClick(item.id)}
           className={`flex flex-col items-center justify-center flex-1 transition-colors duration-200 ${
             activeId === item.id ? 'text-fresh-500' : 'text-gray-400'
           } ${item.primary ? 'mb-1' : ''}`}
